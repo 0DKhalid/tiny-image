@@ -4,8 +4,9 @@
   "main": "main.js",
   "author": {
     "name": "khalid",
-    "email": "alasmarykhalid@gmail.com"
+    "email": "dev.khalid.js@gmail.com"
   },
+  "homepage": "https://github.com/0DKhalid/tiny-image",
   "description": "Desktop app help you to shrink your image size",
   "license": "MIT",
   "scripts": {
