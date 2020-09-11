@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline'"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Tiny Image</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container-content">
+        <div class="container-content__title">
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          </svg>
+          <h1>Tiny Image</h1>
+        </div>
+        <p>برنامج يساعدك في تقليل حجم الصور</p>
+      </div>
+
+      <div class="drop-zone">
+        <span class="drop-zone__text" hidden="false"
+          >قم بالسحب وإفلات الصورة هنا أو قم بالضغط لأختيار الصورة</span
+        >
+
+        <input type="file" accept="image/png, image/jpg, image/jpeg" hidden />
+        <div class="drop-zone__thumb"></div>
+      </div>
+      <div class="slidecontainer">
+        <h4>كلما أخترت قيمة منخفضة كلما حصلت على صورة بحجم أصغر وجودة أقل</h4>
+        <input
+          type="range"
+          min="1"
+          max="100"
+          value="50"
+          class="slider"
+          id="myRange"
+        />
+        <h1></h1>
+      </div>
+
+      <button class="btn" disabled="true">تقليل حجم الصورة</button>
+      <img src="./assets/loader.gif" alt="loader" hidden />
+    </div>
+    <script defer src="./mainRendrer.js"></script>
+  </body>
+</html>
