@@ -1,12 +1,13 @@
 const path = require('path');
 const os = require('os');
 const { app, BrowserWindow, ipcMain, shell, Menu } = require('electron');
+const log = require('electron-log');
 const imagemin = require('imagemin');
 const imageminPngquant = require('imagemin-pngquant');
 const imageminMozjpeg = require('imagemin-mozjpeg');
 const slash = require('slash');
 
-const IS_DEVELOPMENT_MODE = true;
+const IS_DEVELOPMENT_MODE = false;
 
 let mainWindow;
 
@@ -25,9 +26,10 @@ async function compressImage(imagePath, quality) {
         })
       ]
     });
-    shell.showItemInFolder(file.destinationPath);
+    log.info(file);
+    shell.openPath(imagesDist);
   } catch (err) {
-    console.log(err);
+    log.warn(err);
   }
 }
 
@@ -35,7 +37,18 @@ async function compressImage(imagePath, quality) {
 const menu = [
   {
     label: 'Tiny Image',
-    submenu: [{ label: 'إغلاق', role: 'quit' }]
+    submenu: [
+      {
+        label: 'إغلاق',
+        role: 'quit'
+      },
+      {
+        label: 'Github',
+        click() {
+          shell.openExternal('https://github.com/0DKhalid/tiny-image');
+        }
+      }
+    ]
   }
 ];
 
@@ -48,7 +61,7 @@ ipcMain.on('image-compress', async (e, { path, quality }) => {
       dist: imagesDist
     });
   } catch (err) {
-    console.log(err);
+    log.warn(err);
   }
 });
 

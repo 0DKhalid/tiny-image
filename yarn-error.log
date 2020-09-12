@@ -1,0 +1,65 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js install
+
+PATH: 
+  /home/khalid/miniconda3/bin:/home/khalid/miniconda3/condabin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/khalid/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.19.0
+
+Node version: 
+  12.18.3
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/khalid/Desktop/tiny-image/package.json: Unexpected string in JSON at position 377
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/cli.js:304:30)
+      at /usr/share/yarn/lib/cli.js:315:13
+
+npm manifest: 
+  {
+    "name": "tiny-image",
+    "version": "1.0.0",
+    "main": "main.js",
+    "author": {
+      "name": "khalid",
+      "email": "dev.khalid.js@gmail.com"
+    },
+    "homepage": "https://github.com/0DKhalid/tiny-image",
+    "description": "Desktop app help you to shrink your image size",
+    "license": "MIT",
+    "scripts": {
+      "start": "electron .",
+      "dev" :"nodemon --exec electron ."
+      "build:l:deb": "rm -rf ./dist && electron-builder --linux deb tar.xz"
+    },
+    "build": {
+      "appId": "com.khalidjs.tinyimage",
+      "productName": "Tiny Image",
+      "directories": {
+        "buildResources": "."
+      }
+    },
+    "devDependencies": {
+      "electron": "^10.1.1",
+      "electron-builder": "^22.8.0",
+      "nodemon": "^2.0.4"
+    },
+    "dependencies": {
+      "imagemin": "^7.0.1",
+      "imagemin-mozjpeg": "^9.0.0",
+      "imagemin-pngquant": "^9.0.1",
+      "slash": "^3.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
